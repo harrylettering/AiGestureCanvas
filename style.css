@@ -1,0 +1,66 @@
+:root {
+  --bg: #111827;
+  --panel: #1f2937;
+  --text: #e5e7eb;
+  --accent: #10b981;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Noto Sans", "Helvetica Neue", Arial, "Microsoft YaHei", sans-serif;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--panel);
+  border-bottom: 1px solid #374151;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.toolbar button {
+  background: #374151;
+  color: var(--text);
+  border: 1px solid #4b5563;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.toolbar .sep { width: 1px; height: 22px; background: #4b5563; margin: 0 4px; }
+.toolbar .color { width: 26px; height: 26px; border-radius: 50%; border: 2px solid #9ca3af; padding: 0; }
+.toolbar .size { min-width: 36px; }
+.toolbar .status { margin-left: auto; opacity: 0.9; }
+.toolbar input[type="range"] { width: 120px; vertical-align: middle; }
+.toolbar .toggle { display: inline-flex; align-items: center; gap: 6px; }
+.toolbar input[type="color"] {
+  width: 28px;
+  height: 26px;
+  padding: 0;
+  border: 2px solid #9ca3af;
+  border-radius: 6px;
+  background: #374151;
+}
+/* 当前颜色与选中态样式 */
+.toolbar .swatch {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #9ca3af;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+.toolbar .size-status { min-width: 40px; text-align: left; opacity: 0.9; }
+.toolbar .color.active { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(16,185,129,.5) inset; }
+.toolbar .size.active { border-color: var(--accent); background: #2b3442; }
+
+.stage { position: relative; height: calc(100% - 54px); }
+#video { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; display: none; z-index: 0; }
+#canvas { position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block; z-index: 1; pointer-events: none; }
+.hint { position: absolute; left: 12px; bottom: 12px; opacity: 0.8; font-size: 12px; z-index: 2; }

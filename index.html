@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>手势画布</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="toolbar">
+      <button id="cameraToggle">开启摄像头</button>
+      <span class="sep"></span>
+      <span>颜色：</span>
+      <button class="color" data-color="#000000" style="background:#000"></button>
+      <button class="color" data-color="#ff3b30" style="background:#ff3b30"></button>
+      <button class="color" data-color="#007aff" style="background:#007aff"></button>
+      <button class="color" data-color="#34c759" style="background:#34c759"></button>
+      <button class="color" data-color="#ffffff" style="background:#ffffff"></button>
+      <label class="toggle"><span>自定义：</span> <input id="customColor" type="color" value="#ffffff" /></label>
+      <span id="currentColorSwatch" class="swatch" title="当前颜色"></span>
+      <span class="sep"></span>
+      <span>粗细：</span>
+      <button class="size" data-size="4">细</button>
+      <button class="size" data-size="8">中</button>
+      <button class="size" data-size="12">粗</button>
+      <span id="currentSizeText" class="size-status">8px</span>
+      <span class="sep"></span>
+      <span>灵敏度：</span>
+      <input id="sensitivity" type="range" min="1" max="5" step="1" value="3" />
+      <span id="sensitivityValue">中</span>
+      <span class="sep"></span>
+      <label class="toggle"><input id="mirrorToggle" type="checkbox" checked /> 镜像预览</label>
+      <span class="sep"></span>
+      <button id="clearBtn">清空</button>
+      <button id="undoBtn">撤销</button>
+      <button id="saveBtn">保存PNG</button>
+      <span class="status" id="drawStatus">绘制：关闭</span>
+    </header>
+
+    <main class="stage">
+      <canvas id="canvas"></canvas>
+      <video id="video" playsinline muted></video>
+      <div class="hint">提示：食指捏合开始/停止绘制；中指捏合撤销；长捏合（>1秒）清空画布。</div>
+    </main>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+  </html>
