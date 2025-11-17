@@ -5,8 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "start": "vite",
+    "start:lan": "vite --host",
+    "start:5174": "vite --port 5174",
+    "start:lan:5174": "vite --host --port 5174",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "preview:lan": "vite preview --host",
+    "preview:5174": "vite preview --port 5174 --strictPort"
   },
   "devDependencies": {
     "vite": "^5.4.0"
